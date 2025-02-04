@@ -176,7 +176,7 @@ def test_invalid_model_format_in_create(monkeypatch):
             "aisuite.providers.fireworks_provider.FireworksProvider.chat_completions_create_async",
             "fireworks",
             "fireworks-model",
-        )
+        ),
     ],
 )
 @pytest.mark.asyncio
@@ -194,7 +194,9 @@ async def test_async_client_chat_completions(
         ]
 
         model_str = f"{provider}:{model}"
-        model_response = await client.chat.completions.create(model_str, messages=messages)
+        model_response = await client.chat.completions.create(
+            model_str, messages=messages
+        )
         assert model_response == expected_response
 
 

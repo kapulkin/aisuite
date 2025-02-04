@@ -51,4 +51,6 @@ class AsyncCompletions(Completions):
             raise ValueError(f"Could not load provider for '{provider_key}'.")
 
         # Delegate the chat completion to the correct provider's async implementation
-        return await provider.chat_completions_create_async(model_name, messages, **kwargs) 
+        return await provider.chat_completions_create_async(
+            model_name, messages, **kwargs
+        )

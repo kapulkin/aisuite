@@ -37,8 +37,9 @@ def get_test_async_models() -> List[str]:
     return [
         "anthropic:claude-3-5-sonnet-20240620",
         "mistral:open-mistral-7b",
-        "openai:gpt-3.5-turbo"
+        "openai:gpt-3.5-turbo",
     ]
+
 
 def get_test_messages() -> List[Dict[str, str]]:
     """Return the test messages to send to each model."""
