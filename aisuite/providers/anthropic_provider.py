@@ -216,7 +216,6 @@ class AnthropicProvider(Provider):
 
     async def chat_completions_create_async(self, model, messages, **kwargs):
         """Create a chat completion using the async Anthropic API."""
-        # Check if the first message is a system message
         kwargs = self._prepare_kwargs(kwargs)
         system_message, converted_messages = self.converter.convert_request(messages)
 
