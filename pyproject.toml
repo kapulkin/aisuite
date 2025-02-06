@@ -1,9 +1,12 @@
 [tool.poetry]
-name = "aisuite"
-version = "0.1.7"
-description = "Uniform access layer for LLMs"
-authors = ["Andrew Ng, Rohit P"]
+name = "aisuite-async"
+version = "0.1.0"
+description = "Uniform access layer for LLMs with async support"
+authors = ["Andrew Ng, Rohit P, Kapulkin S"]
 readme = "README.md"
+packages = [
+    { include = "aisuite" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"
