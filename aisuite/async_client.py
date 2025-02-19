@@ -43,7 +43,7 @@ class AsyncCompletions(Completions):
         if provider_key not in self.client.providers:
             config = self.client.provider_configs.get(provider_key, {})
             self.client.providers[provider_key] = ProviderFactory.create_provider(
-                provider_key, config
+                provider_key, config, is_async=True
             )
 
         provider = self.client.providers.get(provider_key)

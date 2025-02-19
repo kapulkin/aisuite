@@ -158,22 +158,22 @@ def test_invalid_model_format_in_create(monkeypatch):
     argnames=("patch_target", "provider", "model"),
     argvalues=[
         (
-            "aisuite.providers.openai_provider.OpenaiProvider.chat_completions_create_async",
+            "aisuite.providers.openai_provider.OpenaiAsyncProvider.chat_completions_create_async",
             "openai",
             "gpt-4o",
         ),
         (
-            "aisuite.providers.mistral_provider.MistralProvider.chat_completions_create_async",
+            "aisuite.providers.mistral_provider.MistralAsyncProvider.chat_completions_create_async",
             "mistral",
             "mistral-model",
         ),
         (
-            "aisuite.providers.anthropic_provider.AnthropicProvider.chat_completions_create_async",
+            "aisuite.providers.anthropic_provider.AnthropicAsyncProvider.chat_completions_create_async",
             "anthropic",
             "anthropic-model",
         ),
         (
-            "aisuite.providers.fireworks_provider.FireworksProvider.chat_completions_create_async",
+            "aisuite.providers.fireworks_provider.FireworksAsyncProvider.chat_completions_create_async",
             "fireworks",
             "fireworks-model",
         ),
@@ -202,10 +202,10 @@ async def test_async_client_chat_completions(
 
 @pytest.mark.asyncio
 async def test_invalid_model_format_in_async_create(monkeypatch):
-    from aisuite.providers.openai_provider import OpenaiProvider
+    from aisuite.providers.openai_provider import OpenaiAsyncProvider
 
     monkeypatch.setattr(
-        target=OpenaiProvider,
+        target=OpenaiAsyncProvider,
         name="chat_completions_create_async",
         value=Mock(),
     )
