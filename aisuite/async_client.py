@@ -1,5 +1,6 @@
 from .client import Client, Chat, Completions
 from .provider import ProviderFactory
+from .tool_runner import ToolRunner
 
 
 class AsyncClient(Client):
@@ -21,6 +22,7 @@ class AsyncCompletions(Completions):
     async def create(self, model: str, messages: list, **kwargs):
         """
         Create async chat completion based on the model, messages, and any extra arguments.
+        Supports automatic tool execution when max_turns is specified.
         """
         # Check that correct format is used
         if ":" not in model:
@@ -50,7 +52,22 @@ class AsyncCompletions(Completions):
         if not provider:
             raise ValueError(f"Could not load provider for '{provider_key}'.")
 
+        # Extract tool-related parameters
+        max_turns = kwargs.pop("max_turns", None)
+        tools = kwargs.get("tools", None)
+
+        # Check environment variable before allowing multi-turn tool execution
+        if max_turns is not None and tools is not None:
+            tool_runner = ToolRunner(provider, model_name, messages.copy(), tools, max_turns)
+            return await tool_runner.run_async(
+                provider,
+                model_name,
+                messages.copy(),
+                tools,
+                max_turns,
+            )
+
+        # Default behavior without tool execution
         # Delegate the chat completion to the correct provider's async implementation
-        return await provider.chat_completions_create_async(
-            model_name, messages, **kwargs
-        )
+        response = await provider.chat_completions_create_async(model_name, messages, **kwargs)
+        return self._extract_thinking_content(response)
