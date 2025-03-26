@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import patch, MagicMock
-from aisuite.providers.google_provider import GoogleProvider
+from aisuite_async.providers.google_provider import GoogleProvider
 from vertexai.generative_models import Content, Part
 import json
 
@@ -42,7 +42,7 @@ def test_vertex_interface():
         del mock_response.candidates[0].content.parts[0].function_call
 
         with patch(
-            "aisuite.providers.google_provider.GenerativeModel"
+            "aisuite_async.providers.google_provider.GenerativeModel"
         ) as mock_generative_model:
             mock_model = MagicMock()
             mock_generative_model.return_value = mock_model
@@ -79,7 +79,7 @@ def test_vertex_interface():
         mock_response.candidates[0].content.parts[0].text = None
 
         with patch(
-            "aisuite.providers.google_provider.GenerativeModel"
+            "aisuite_async.providers.google_provider.GenerativeModel"
         ) as mock_generative_model:
             mock_model = MagicMock()
             mock_generative_model.return_value = mock_model

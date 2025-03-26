@@ -4,9 +4,9 @@
 
 import anthropic
 import json
-from aisuite.provider import Provider, AsyncProvider
-from aisuite.framework import ChatCompletionResponse
-from aisuite.framework.message import Message, ChatCompletionMessageToolCall, Function
+from aisuite_async.provider import Provider, AsyncProvider
+from aisuite_async.framework import ChatCompletionResponse
+from aisuite_async.framework.message import Message, ChatCompletionMessageToolCall, Function
 
 # Define a constant for the default max_tokens value
 DEFAULT_MAX_TOKENS = 4096

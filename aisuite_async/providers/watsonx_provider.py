@@ -1,8 +1,8 @@
-from aisuite.provider import Provider
+from aisuite_async.provider import Provider
 import os
 from ibm_watsonx_ai import Credentials
 from ibm_watsonx_ai.foundation_models import ModelInference
-from aisuite.framework import ChatCompletionResponse
+from aisuite_async.framework import ChatCompletionResponse
 
 
 class WatsonxProvider(Provider):

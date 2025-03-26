@@ -1,7 +1,7 @@
 import os
 import groq
-from aisuite.provider import Provider, LLMError
-from aisuite.providers.message_converter import OpenAICompliantMessageConverter
+from aisuite_async.provider import Provider, LLMError
+from aisuite_async.providers.message_converter import OpenAICompliantMessageConverter
 
 # Implementation of Groq provider.
 # Groq's message format is same as OpenAI's.

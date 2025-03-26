@@ -2,7 +2,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from aisuite.providers.cerebras_provider import CerebrasProvider
+from aisuite_async.providers.cerebras_provider import CerebrasProvider
 
 
 @pytest.fixture(autouse=True)

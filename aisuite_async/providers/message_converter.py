@@ -1,5 +1,5 @@
-from aisuite.framework import ChatCompletionResponse
-from aisuite.framework.message import Message, ChatCompletionMessageToolCall
+from aisuite_async.framework import ChatCompletionResponse
+from aisuite_async.framework.message import Message, ChatCompletionMessageToolCall
 
 
 class OpenAICompliantMessageConverter:

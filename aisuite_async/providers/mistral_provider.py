@@ -1,9 +1,9 @@
 import os
 from mistralai import Mistral
-from aisuite.framework.message import Message
-from aisuite.framework import ChatCompletionResponse
-from aisuite.provider import Provider, AsyncProvider, LLMError
-from aisuite.providers.message_converter import OpenAICompliantMessageConverter
+from aisuite_async.framework.message import Message
+from aisuite_async.framework import ChatCompletionResponse
+from aisuite_async.provider import Provider, AsyncProvider, LLMError
+from aisuite_async.providers.message_converter import OpenAICompliantMessageConverter
 
 
 # Implementation of Mistral provider.

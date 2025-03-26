@@ -1,5 +1,5 @@
 import os
-from aisuite.provider import Provider
+from aisuite_async.provider import Provider
 from openai import Client
 
 

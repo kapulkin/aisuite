@@ -2,7 +2,7 @@
 # It will test all the models in the client.
 
 import pytest
-import aisuite as ai
+import aisuite_async as ai
 from typing import List, Dict
 from dotenv import load_dotenv, find_dotenv
 

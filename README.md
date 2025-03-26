@@ -72,7 +72,7 @@ export ANTHROPIC_API_KEY="your-anthropic-api-key"
 Use the python client.
 
 ```python
-import aisuite as ai
+import aisuite_async as ai
 client = ai.Client()
 
 models = ["openai:gpt-4o", "anthropic:claude-3-5-sonnet-20240620"]
@@ -95,7 +95,7 @@ for model in models:
 Use the async client.
 
 ```python
-import aisuite as ai
+import aisuite_async as ai
 import asyncio
 
 client = ai.AsyncClient()
@@ -122,7 +122,7 @@ for response in responses:
 
 Note that the model name in the create() call uses the format - `<provider>:<model-name>`.
 `aisuite-async` will call the appropriate provider with the right parameters based on the provider value.
-For a list of provider values, you can look at the directory - `aisuite/providers/`. The list of supported providers are of the format - `<provider>_provider.py` in that directory. We welcome  providers adding support to this library by adding an implementation file in this directory. Please see section below for how to contribute.
+For a list of provider values, you can look at the directory - `aisuite_async/providers/`. The list of supported providers are of the format - `<provider>_provider.py` in that directory. We welcome  providers adding support to this library by adding an implementation file in this directory. Please see section below for how to contribute.
 
 
 For more examples, check out the `examples` directory where you will find several notebooks that you can run to experiment with the interface.

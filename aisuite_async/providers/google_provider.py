@@ -15,7 +15,7 @@ from vertexai.generative_models import (
 )
 import pprint
 
-from aisuite.framework import ProviderInterface, ChatCompletionResponse, Message
+from aisuite_async.framework import ProviderInterface, ChatCompletionResponse, Message
 
 
 DEFAULT_TEMPERATURE = 0.7

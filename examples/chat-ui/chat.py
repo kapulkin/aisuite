@@ -5,8 +5,8 @@ import sys
 import yaml
 from dotenv import load_dotenv, find_dotenv
 
-sys.path.append("../../../aisuite")
-from aisuite.client import Client
+sys.path.append("../../../aisuite_async")
+from aisuite_async.client import Client
 
 # Configure Streamlit to use wide mode and hide the top streamlit menu
 st.set_page_config(layout="wide", menu_items={})
@@ -82,7 +82,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Load configuration and initialize aisuite client
+# Load configuration and initialize aisuite_async client
 with open("config.yaml", "r") as file:
     config = yaml.safe_load(file)
 configured_llms = config["llms"]

@@ -1,6 +1,6 @@
 # Chat UI
 
-This is a simple chat UI built using Streamlit. It uses the `aisuite` library to power the chat.
+This is a simple chat UI built using Streamlit. It uses the `aisuite_async` library to power the chat.
 
 You will need to install streamlit to run this example.
 

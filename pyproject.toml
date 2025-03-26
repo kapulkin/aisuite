@@ -4,9 +4,6 @@ version = "0.1.10"
 description = "Uniform access layer for LLMs with async support"
 authors = ["Andrew Ng, Rohit P, Kapulkin S"]
 readme = "README.md"
-packages = [
-    { include = "aisuite" }
-]
 
 [tool.poetry.dependencies]
 python = "^3.10"

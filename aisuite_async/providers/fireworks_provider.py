@@ -1,9 +1,9 @@
 import os
 import httpx
 import json
-from aisuite.provider import Provider, AsyncProvider, LLMError
-from aisuite.framework import ChatCompletionResponse
-from aisuite.framework.message import Message, ChatCompletionMessageToolCall
+from aisuite_async.provider import Provider, AsyncProvider, LLMError
+from aisuite_async.framework import ChatCompletionResponse
+from aisuite_async.framework.message import Message, ChatCompletionMessageToolCall
 
 
 class FireworksMessageConverter:

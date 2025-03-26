@@ -1,7 +1,7 @@
 import openai
 import os
-from aisuite.provider import Provider, AsyncProvider, LLMError
-from aisuite.providers.message_converter import OpenAICompliantMessageConverter
+from aisuite_async.provider import Provider, AsyncProvider, LLMError
+from aisuite_async.providers.message_converter import OpenAICompliantMessageConverter
 
 
 class OpenaiProvider(Provider):

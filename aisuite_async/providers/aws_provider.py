@@ -3,9 +3,9 @@ import json
 from typing import List, Dict, Any, Tuple, Optional
 
 import boto3
-from aisuite.provider import Provider, LLMError
-from aisuite.framework import ChatCompletionResponse
-from aisuite.framework.message import Message
+from aisuite_async.provider import Provider, LLMError
+from aisuite_async.framework import ChatCompletionResponse
+from aisuite_async.framework.message import Message
 import botocore
 
 

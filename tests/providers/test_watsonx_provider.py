@@ -7,7 +7,7 @@ try:
 except Exception as e:
     pytest.skip(f"Skipping test due to import error: {e}", allow_module_level=True)
 
-from aisuite.providers.watsonx_provider import WatsonxProvider
+from aisuite_async.providers.watsonx_provider import WatsonxProvider
 
 
 @pytest.fixture(autouse=True)
@@ -32,7 +32,7 @@ def test_watsonx_provider():
     mock_response = {"choices": [{"message": {"content": response_text_content}}]}
 
     with patch(
-        "aisuite.providers.watsonx_provider.ModelInference"
+        "aisuite_async.providers.watsonx_provider.ModelInference"
     ) as mock_model_inference:
         mock_model = MagicMock()
         mock_model_inference.return_value = mock_model

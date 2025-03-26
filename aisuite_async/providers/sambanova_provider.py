@@ -1,7 +1,7 @@
 import os
-from aisuite.provider import Provider, LLMError
+from aisuite_async.provider import Provider, LLMError
 from openai import OpenAI
-from aisuite.providers.message_converter import OpenAICompliantMessageConverter
+from aisuite_async.providers.message_converter import OpenAICompliantMessageConverter
 
 
 class SambanovaMessageConverter(OpenAICompliantMessageConverter):

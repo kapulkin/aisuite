@@ -2,7 +2,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from aisuite.providers.deepseek_provider import DeepseekProvider
+from aisuite_async.providers.deepseek_provider import DeepseekProvider
 
 
 @pytest.fixture(autouse=True)

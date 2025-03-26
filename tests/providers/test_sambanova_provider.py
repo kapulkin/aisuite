@@ -2,7 +2,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from aisuite.providers.sambanova_provider import SambanovaProvider
+from aisuite_async.providers.sambanova_provider import SambanovaProvider
 
 
 @pytest.fixture(autouse=True)

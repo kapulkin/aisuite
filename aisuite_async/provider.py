@@ -38,7 +38,7 @@ class ProviderFactory:
         provider_class_name = f"{provider_key.capitalize()}{async_suffix}Provider"
         provider_module_name = f"{provider_key}_provider"
 
-        module_path = f"aisuite.providers.{provider_module_name}"
+        module_path = f"aisuite_async.providers.{provider_module_name}"
 
         # Lazily load the module
         try:

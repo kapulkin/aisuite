@@ -1,7 +1,7 @@
 import os
 import httpx
-from aisuite.provider import Provider, LLMError
-from aisuite.framework import ChatCompletionResponse
+from aisuite_async.provider import Provider, LLMError
+from aisuite_async.framework import ChatCompletionResponse
 
 
 class OllamaProvider(Provider):

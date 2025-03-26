@@ -1,8 +1,8 @@
 import unittest
 from unittest.mock import MagicMock
-from aisuite.providers.aws_provider import BedrockMessageConverter
-from aisuite.framework.message import Message, ChatCompletionMessageToolCall
-from aisuite.framework import ChatCompletionResponse
+from aisuite_async.providers.aws_provider import BedrockMessageConverter
+from aisuite_async.framework.message import Message, ChatCompletionMessageToolCall
+from aisuite_async.framework import ChatCompletionResponse
 
 
 class TestBedrockMessageConverter(unittest.TestCase):

@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch, MagicMock
 
-from aisuite.providers.nebius_provider import NebiusProvider
+from aisuite_async.providers.nebius_provider import NebiusProvider
 
 
 @pytest.fixture(autouse=True)

@@ -1,4 +1,4 @@
-from aisuite.framework.message import Message
+from aisuite_async.framework.message import Message
 from typing import Literal, Optional, List
 
 

@@ -1,7 +1,7 @@
 import os
 import cerebras.cloud.sdk as cerebras
-from aisuite.provider import Provider, LLMError
-from aisuite.providers.message_converter import OpenAICompliantMessageConverter
+from aisuite_async.provider import Provider, LLMError
+from aisuite_async.providers.message_converter import OpenAICompliantMessageConverter
 
 
 class CerebrasMessageConverter(OpenAICompliantMessageConverter):

@@ -1,6 +1,6 @@
 import openai
 import os
-from aisuite.provider import Provider, LLMError
+from aisuite_async.provider import Provider, LLMError
 
 
 class DeepseekProvider(Provider):

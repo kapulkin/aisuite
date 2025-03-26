@@ -1,8 +1,8 @@
 import unittest
 from unittest.mock import MagicMock
-from aisuite.providers.anthropic_provider import AnthropicMessageConverter
-from aisuite.framework.message import Message, ChatCompletionMessageToolCall, Function
-from aisuite.framework import ChatCompletionResponse
+from aisuite_async.providers.anthropic_provider import AnthropicMessageConverter
+from aisuite_async.framework.message import Message, ChatCompletionMessageToolCall, Function
+from aisuite_async.framework import ChatCompletionResponse
 
 
 class TestAnthropicMessageConverter(unittest.TestCase):

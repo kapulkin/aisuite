@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import patch, MagicMock
-from aisuite.providers.ollama_provider import OllamaProvider
+from aisuite_async.providers.ollama_provider import OllamaProvider
 
 
 @pytest.fixture(autouse=True)

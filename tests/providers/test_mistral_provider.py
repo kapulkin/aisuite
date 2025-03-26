@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch, MagicMock
 
-from aisuite.providers.mistral_provider import MistralProvider, MistralAsyncProvider
+from aisuite_async.providers.mistral_provider import MistralProvider, MistralAsyncProvider
 
 
 @pytest.fixture(autouse=True)
