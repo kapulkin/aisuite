@@ -28,6 +28,7 @@ Async support is currently available for:
 - Anthropic
 - Mistral
 - Fireworks.
+
 To maximize stability, `aisuite-async` uses either the HTTP endpoint or the SDK for making calls to the provider.
 
 ## Installation
