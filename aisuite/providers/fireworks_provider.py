@@ -1,7 +1,7 @@
 import os
 import httpx
 import json
-from aisuite.provider import Provider, LLMError
+from aisuite.provider import Provider, AsyncProvider, LLMError
 from aisuite.framework import ChatCompletionResponse
 from aisuite.framework.message import Message, ChatCompletionMessageToolCall
 
@@ -129,6 +129,28 @@ class FireworksProvider(Provider):
             raise LLMError(error_message)
         except Exception as e:
             raise LLMError(f"An error occurred: {e}")
+
+class FireworksAsyncProvider(AsyncProvider):
+    """
+    Fireworks AI Provider using httpx for direct API calls.
+    """
+
+    BASE_URL = "https://api.fireworks.ai/inference/v1/chat/completions"
+
+    def __init__(self, **config):
+        """
+        Initialize the Fireworks provider with the given configuration.
+        The API key is fetched from the config or environment variables.
+        """
+        self.api_key = config.get("api_key", os.getenv("FIREWORKS_API_KEY"))
+        if not self.api_key:
+            raise ValueError(
+                "Fireworks API key is missing. Please provide it in the config or set the FIREWORKS_API_KEY environment variable."
+            )
+
+        # Optionally set a custom timeout (default to 30s)
+        self.timeout = config.get("timeout", 30)
+        self.transformer = FireworksMessageConverter()
 
     async def chat_completions_create_async(self, model, messages, **kwargs):
         """

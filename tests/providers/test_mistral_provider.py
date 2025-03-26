@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch, MagicMock
 
-from aisuite.providers.mistral_provider import MistralProvider
+from aisuite.providers.mistral_provider import MistralProvider, MistralAsyncProvider
 
 
 @pytest.fixture(autouse=True)
@@ -53,7 +53,7 @@ async def test_mistral_provider_async():
     chosen_temperature = 0.75
     response_text_content = "mocked-text-response-from-model"
 
-    provider = MistralProvider()
+    provider = MistralAsyncProvider()
     mock_response = MagicMock()
     mock_response.choices = [MagicMock()]
     mock_response.choices[0].message = MagicMock()

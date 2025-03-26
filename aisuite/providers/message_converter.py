@@ -22,9 +22,15 @@ class OpenAICompliantMessageConverter:
                 tmsg = message_dict
             else:
                 tmsg = message
-            if tmsg["role"] == "tool":
+            # Check if tmsg is a dict, otherwise get role attribute
+            role = tmsg["role"] if isinstance(tmsg, dict) else tmsg.role
+            if role == "tool":
                 if OpenAICompliantMessageConverter.tool_results_as_strings:
-                    tmsg["content"] = str(tmsg["content"])
+                    # Handle both dict and object cases for content
+                    if isinstance(tmsg, dict):
+                        tmsg["content"] = str(tmsg["content"])
+                    else:
+                        tmsg.content = str(tmsg.content)
 
             transformed_messages.append(tmsg)
         return transformed_messages
@@ -32,7 +38,6 @@ class OpenAICompliantMessageConverter:
     @staticmethod
     def convert_response(response_data) -> ChatCompletionResponse:
         """Normalize the response to match OpenAI's response format."""
-        print(response_data)
         completion_response = ChatCompletionResponse()
         choice = response_data["choices"][0]
         message = choice["message"]
