@@ -148,10 +148,11 @@ class Completions:
         # Extract tool-related parameters
         max_turns = kwargs.pop("max_turns", None)
         tools = kwargs.get("tools", None)
+        automatic_tool_calling = kwargs.get("automatic_tool_calling", False)
 
         # Check environment variable before allowing multi-turn tool execution
         if max_turns is not None and tools is not None:
-            tool_runner = ToolRunner(provider, model_name, messages.copy(), tools, max_turns)
+            tool_runner = ToolRunner(provider, model_name, messages.copy(), tools, max_turns, automatic_tool_calling)
             return tool_runner.run(
                 provider,
                 model_name,
