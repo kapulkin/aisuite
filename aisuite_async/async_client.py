@@ -4,6 +4,14 @@ from .tool_runner import ToolRunner
 
 
 class AsyncClient(Client):
+    def _initialize_providers(self):
+        """Helper method to initialize or update providers."""
+        for provider_key, config in self.provider_configs.items():
+            provider_key = self._validate_provider_key(provider_key)
+            self.providers[provider_key] = ProviderFactory.create_provider(
+                provider_key, config, is_async=True
+            )
+
     @property
     def chat(self):
         """Return the async chat API interface."""
