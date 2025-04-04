@@ -3,12 +3,13 @@ from .utils.tools import Tools
 import asyncio
 
 class ToolRunner:
-    def __init__(self, provider, model_name, messages, tools, max_turns):
+    def __init__(self, provider, model_name, messages, tools, max_turns, automatic_tool_calling):
         self.provider = provider
         self.model_name = model_name
         self.messages = messages
         self.tools = tools
         self.max_turns = max_turns
+        self.automatic_tool_calling = automatic_tool_calling
 
     async def run_async(
         self,
@@ -69,7 +70,7 @@ class ToolRunner:
             # Store the model's message
             intermediate_messages.append(response.choices[0].message)
 
-            if not tool_calls:
+            if not tool_calls or not self.automatic_tool_calling:
                 # Set the intermediate data in the final response
                 response.intermediate_responses = intermediate_responses[
                     :-1

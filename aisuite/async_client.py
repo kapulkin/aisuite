@@ -1,9 +1,16 @@
 from .client import Client, Chat, Completions
+from .base_client import BaseClient
 from .provider import ProviderFactory
 from .tool_runner import ToolRunner
 
 
-class AsyncClient(Client):
+class AsyncClient(BaseClient):
+    def __init__(self, provider_configs: dict = {}):
+        super().__init__(provider_configs, is_async=True)
+
+    def configure(self, provider_configs: dict = None):
+        super().configure(provider_configs, True)
+
     @property
     def chat(self):
         """Return the async chat API interface."""
@@ -55,10 +62,11 @@ class AsyncCompletions(Completions):
         # Extract tool-related parameters
         max_turns = kwargs.pop("max_turns", None)
         tools = kwargs.get("tools", None)
+        automatic_tool_calling = kwargs.get("automatic_tool_calling", False)
 
         # Check environment variable before allowing multi-turn tool execution
         if max_turns is not None and tools is not None:
-            tool_runner = ToolRunner(provider, model_name, messages.copy(), tools, max_turns)
+            tool_runner = ToolRunner(provider, model_name, messages.copy(), tools, max_turns, automatic_tool_calling)
             return await tool_runner.run_async(
                 provider,
                 model_name,

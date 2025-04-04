@@ -87,7 +87,7 @@ def test_model_pirate_response(model_id: str):
 
 @pytest.mark.integration
 @pytest.mark.asyncio
-@pytest.mark.parametrize("model_id", get_test_models())
+@pytest.mark.parametrize("model_id", get_test_async_models())
 async def test_async_model_pirate_response(model_id: str):
     """
     Test that each model responds appropriately to the pirate prompt using async client.

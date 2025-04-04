@@ -1,10 +1,11 @@
 from .provider import ProviderFactory
+from .base_client import BaseClient
 import os
 from .utils.tools import Tools
 from .tool_runner import ToolRunner
 
 
-class Client:
+class Client(BaseClient):
     def __init__(self, provider_configs: dict = {}):
         """
         Initialize the client with provider configurations.
@@ -24,42 +25,10 @@ class Client:
                     }
                 }
         """
-        self.providers = {}
-        self.provider_configs = provider_configs
-        self._chat = None
-        self._initialize_providers()
-
-    def _initialize_providers(self):
-        """Helper method to initialize or update providers."""
-        for provider_key, config in self.provider_configs.items():
-            provider_key = self._validate_provider_key(provider_key)
-            self.providers[provider_key] = ProviderFactory.create_provider(
-                provider_key, config
-            )
-
-    def _validate_provider_key(self, provider_key):
-        """
-        Validate if the provider key corresponds to a supported provider.
-        """
-        supported_providers = ProviderFactory.get_supported_providers()
-
-        if provider_key not in supported_providers:
-            raise ValueError(
-                f"Invalid provider key '{provider_key}'. Supported providers: {supported_providers}. "
-                "Make sure the model string is formatted correctly as 'provider:model'."
-            )
-
-        return provider_key
+        super().__init__(provider_configs, is_async=False)
 
     def configure(self, provider_configs: dict = None):
-        """
-        Configure the client with provider configurations.
-        """
-        if provider_configs is None:
-            return
-
-        self.provider_configs.update(provider_configs)
-        self._initialize_providers()  # NOTE: This will override existing provider instances.
+        super().configure(provider_configs, False)
 
     @property
     def chat(self):
@@ -148,10 +117,11 @@ class Completions:
         # Extract tool-related parameters
         max_turns = kwargs.pop("max_turns", None)
         tools = kwargs.get("tools", None)
+        automatic_tool_calling = kwargs.get("automatic_tool_calling", False)
 
         # Check environment variable before allowing multi-turn tool execution
         if max_turns is not None and tools is not None:
-            tool_runner = ToolRunner(provider, model_name, messages.copy(), tools, max_turns)
+            tool_runner = ToolRunner(provider, model_name, messages.copy(), tools, max_turns, automatic_tool_calling)
             return tool_runner.run(
                 provider,
                 model_name,
