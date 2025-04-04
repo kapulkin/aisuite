@@ -1,9 +1,16 @@
 from .client import Client, Chat, Completions
+from .base_client import BaseClient
 from .provider import ProviderFactory
 from .tool_runner import ToolRunner
 
 
-class AsyncClient(Client):
+class AsyncClient(BaseClient):
+    def __init__(self, provider_configs: dict = {}):
+        super().__init__(provider_configs, is_async=True)
+
+    def configure(self, provider_configs: dict = None):
+        super().configure(provider_configs, True)
+
     @property
     def chat(self):
         """Return the async chat API interface."""
