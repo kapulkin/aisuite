@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aisuite-async"
-version = "0.1.11.1"
+version = "0.1.11.2"
 description = "Uniform access layer for LLMs with async support"
 authors = ["Andrew Ng, Rohit P, Kapulkin S"]
 readme = "README.md"
@@ -19,7 +19,7 @@ docstring-parser = { version = "^0.14.0", optional = true }
 cerebras_cloud_sdk = { version = "^1.19.0", optional = true }
 
 # Optional dependencies for different providers
-httpx = "~0.27.0"
+httpx = "^0.28.1"
 [tool.poetry.extras]
 anthropic = ["anthropic"]
 aws = ["boto3"]
